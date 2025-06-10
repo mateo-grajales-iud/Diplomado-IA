@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+    {% include 'partials/head.html' %}
+<body>
+
+    {% include 'partials/navbar.html' %}
+
+  <div class="form-container">
+    <h2 class="mb-4 text-center">{{ fields.title }}</h2>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+
+                <form id="smartForm">
+
+                    <!-- Role -->
+                    <div class="row mb-3 align-items-center" {% if not fields.show_role %}hidden{% endif %}>
+                        <div class="col-md-2 col-12">
+                            <label for="role" class="form-label">Rol</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="role" name="role" placeholder="Ingresa el rol" value="{{ fields.role }}">
+                        </div>
+                    </div>
+            
+                    <!-- Context -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="context" class="form-label">
+                                Contexto
+                                <i class="bi bi-info-circle" 
+                                data-bs-toggle="tooltip" 
+                                data-bs-placement="right" 
+                                title="Ingresa aquí una corta descripción de quién eres y cuál es tu objetivo">
+                                </i>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="context" name="context" placeholder="Ej. Soy un deportista que busca aumentar su masa muscular...">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 align-items-center">
+                        <!-- Gender -->
+                        <div class="col-md-2 col-12">
+                          <label for="gender" class="form-label">
+                            Género
+                            <i class="bi bi-info-circle" 
+                               data-bs-toggle="tooltip" 
+                               data-bs-placement="right" 
+                               title="Para la obtención de resultados adecuados es indispensable indicar género biológico independiente de la identidad de género del usuario">
+                            </i>
+                          </label>
+                        </div>
+                        <div class="col-md-3 col-12">
+                          <select id="gender" name="gender" class="form-select">
+                            <option value="" selected disabled>Selecciona</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                          </select>
+                        </div>
+                      
+                        <!-- Age -->
+                        <div class="col-md-3 col-6 d-flex align-items-center gap-2">
+                            <label for="age" class="form-label mb-0" style="white-space: nowrap;">Edad</label>
+                            <input type="number" id="age" name="age" class="form-control" min="0" max="120" placeholder="Años">
+                        </div>
+
+                        <!-- Weight -->
+                        <div class="col-md-3 col-6 d-flex align-items-center gap-2">
+                            <label for="weight" class="form-label mb-0" style="white-space: nowrap;">Peso (Kg)</label>
+                            <input type="number" id="weight" name="weight" class="form-control" min="0" max="120" placeholder="Kgs">
+                        </div>
+                    </div>
+
+                    <!-- Illnesses -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="illnesses" class="form-label">Enfermedades</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="illnesses" name="illnesses" placeholder="Ingresa cualquier enfermedad que tengas (ej. Diabetes, Hipertension, Obesidad)">
+                        </div>
+                    </div>
+
+                    <!-- Allergies -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="allergies" class="form-label">Alergias</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="allergies" name="allergies" placeholder="Ingresa cualquier alergia hacia alimentos que tengas">
+                        </div>
+                    </div>
+
+                    <!-- Preferences -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="preferences" class="form-label">Preferencias</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="preferences" name="preferences" placeholder="Ingresa si tienes una preferencia alimenticia (ej. Vegano, Keto)">
+                        </div>
+                    </div>
+
+                    <!-- Liked -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="liked" class="form-label">Preferidos</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="liked" name="liked" placeholder="Ingresa tus alimentos preferidos">
+                        </div>
+                    </div>
+
+                    <!-- Disliked -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="disliked" class="form-label">No preferidos
+                                <i class="bi bi-info-circle" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    title="Estos son los alimentos que no te gustan, pero puedes consumirlos">
+                                </i>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="disliked" name="disliked" placeholder="Ingresa los alimentos que no te gustan pero puedes consumirlos">
+                        </div>
+                    </div>
+
+                    <!-- Restricted -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="restricted" class="form-label">Restringidos
+                                <i class="bi bi-info-circle" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    title="Estos son los alimentos que no debes consumir por motivos medicos">
+                                </i>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="restricted" name="restricted" placeholder="Ingresa los alimentos que no puedes consumir ya que eres sensible a ellos (ej. Leche, Gluten, etc)">
+                        </div>
+                    </div>
+
+                    <!-- Medical -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="medical" class="form-label">Indicaciones medicas
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="medical" name="medical" placeholder="Ingresa las indicaciones que te ha dado tu medico con respecto a tus alimentos (ej. Baja sal, alto en colesterol HDL, etc)">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 align-items-center">
+                        <!-- location -->
+                        <div class="col-md-2 col-12">
+                          <label for="location" class="form-label">
+                            Ubicación
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <input type="text" class="form-control" id="location" name="location" placeholder="En que ciudad y país estas localizado">
+                        </div>
+                      
+                        <!-- cuisine -->
+                        <div class="col-md-2 col-12">
+                            <label for="cuisine" class="form-label">
+                              Cocina preferida
+                            </label>
+                          </div>
+                          <div class="col-md-4 col-12">
+                              <input type="text" class="form-control" id="cuisine" name="cuisine" placeholder="Que tipo de cocina prefieres (ej: local, internacional, italiana, etc)">
+                          </div>
+                    </div>
+
+                    <!-- skill -->
+                    <div class="row mb-3 align-items-center">
+                    <div class="col-md-2 col-12">
+                        <label for="skill" class="form-label">
+                          Habilidad para cocinar
+                        </label>
+                      </div>
+                    <div class="col-md-4 col-12">
+                        <select id="skill" name="skill" class="form-select">
+                          <option value="" selected disabled>Selecciona</option>
+                          <option value="masculino">Bajo</option>
+                          <option value="femenino">Medio</option>
+                          <option value="femenino">Alto</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- days -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="days" class="form-label">Dias a generar
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input type="number" id="days" name="days" class="form-control" min="0" max="7" placeholder="Dias">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 align-items-center">
+                        <!-- calories -->
+                        <div class="col-md-4 col-6 d-flex align-items-center gap-2">
+                            <label for="calories" class="form-label mb-0" style="white-space: nowrap;">Calorias al día</label>
+                            <input type="number" id="calories" name="calories" class="form-control" min="0" max="3000" placeholder="Calorias">
+                        </div>
+
+                        <!-- meals -->
+                        <div class="col-md-4 col-6 d-flex align-items-center gap-2">
+                            <label for="meals" class="form-label mb-0" style="white-space: nowrap;">Comidas al día</label>
+                            <input type="number" id="meals" name="meals" class="form-control" min="0" max="5" placeholder="Comidas">
+                        </div>
+
+                        <!-- snacks -->
+                        <div class="col-md-4 col-6 d-flex align-items-center gap-2">
+                            <label for="snacks" class="form-label mb-0" style="white-space: nowrap;">Snacks</label>
+                            <input type="number" id="snacks" name="snacks" class="form-control" min="0" max="5" placeholder="Snacks">
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col d-flex justify-content-end gap-3">
+                          <button type="reset" class="btn btn-outline-secondary">
+                            Limpiar campos
+                          </button>
+                          <button type="submit" class="btn btn-success">
+                            Enviar
+                          </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4" id="resultSection" style="display: none;">
+    <p id="resultIdLabel" class="mb-2 fw-semibold text-success"></p>
+    <button id="goToResults" class="btn btn-success">
+      Ir a resultados
+    </button>
+  </div>
+
+  {% include 'partials/footer.html' %}
+
+  <!-- Bootstrap JS (Popper + Bootstrap) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("smartForm");
+  
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault(); // Evita el comportamiento por defecto (redirección)
+  
+        const formData = new FormData(form);
+  
+        try {
+          const response = await fetch("http://127.0.0.1:5000/api/query", {
+            method: "POST",
+            body: formData,
+          });
+  
+          if (!response.ok) throw new Error("Error al enviar el formulario");
+  
+          const result = await response.json();
+
+          console.log(result)
+
+          if (result.id) {
+            resultIdLabel.textContent = `ID Resultado: ${result.id}`;
+            resultSection.style.display = "block";
+            goToResults.disabled = false;
+            goToResults.addEventListener("click", function () {
+            window.location.href = `http://127.0.0.1:5000/result/${result.id}`;
+        });
+          }
+  
+          form.reset();
+  
+        } catch (error) {
+          console.error(error);
+          alert("Ocurrió un error al enviar el formulario.");
+        }
+      });
+    });
+  </script>

@@ -1,0 +1,32 @@
+body {
+    background-color: #f9fdf7; /* verde muy claro */
+    color: #2a5d34; /* verde oscuro */
+  }
+  .btn-primary {
+    background-color: #7cb342; /* verde lima */
+    border-color: #7cb342;
+  }
+  .btn-primary:hover {
+    background-color: #5a8a27;
+    border-color: #5a8a27;
+  }
+  .form-label {
+    font-weight: 600;
+  }
+  .form-control {
+    border-color: #a3c293;
+  }
+  .form-control:focus {
+    border-color: #7cb342;
+    box-shadow: 0 0 5px #7cb342;
+  }
+  .form-container {
+    width: 100%;
+    max-width: clamp(320px, 90%, 800px); /* Responsive dinámico */
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(124, 179, 66, 0.3);
+  }
+  

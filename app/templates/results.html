@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+{% include 'partials/head.html' %}
+
+<body>
+
+    {% include 'partials/navbar.html' %}
+
+    <div class="mt-4">
+        {% if status == "PENDING" %}
+          <div class="alert alert-info d-flex align-items-center" role="alert">
+            <i class="bi bi-hourglass-split me-2"></i>
+            <div>
+              La solicitud fue recibida, pero aún está en proceso. Por favor vuelve a intentarlo más tarde.
+            </div>
+          </div>
+
+        {% elif status == "CREATED_PROMPT" %}
+        <div class="alert alert-info d-flex align-items-center" role="alert">
+          <i class="bi bi-hourglass-split me-2"></i>
+          <div>
+            El prompt ha sido creado pero aun no ha sido procesado. Por favor vuelve a intentarlo más tarde.
+          </div>
+        </div>
+        
+        {% elif status == "ERROR" %}
+          <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <div>
+              Hubo un error al procesar tu solicitud. Por favor intenta de nuevo más tarde.
+            </div>
+          </div>
+
+          {% elif status == "NOT_FOUND" %}
+          <div class="alert alert-warning d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <div>
+              No se pudo encontrar tu solicitud.
+            </div>
+          </div>
+        
+        {% elif status == "COMPLETED" %}
+          <!-- Placeholder para resultados -->
+          <div id="resultContent" class="mt-4"></div>
+          {% include 'partials/mealplan.html' %}
+        {% endif %}
+      </div>
+
+    {% include 'partials/footer.html' %}
+
+    <!-- Bootstrap JS (Popper + Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

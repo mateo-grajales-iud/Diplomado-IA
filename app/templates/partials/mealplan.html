@@ -1,0 +1,35 @@
+<div class="container py-4">
+    <div class="container mt-4">
+        <h3 class="mb-4">Resumen de Información</h3>
+        <div class="row">
+            <p>{{json.Resumen}}</p>
+        </div>
+    </div>
+    <h2 class="text-center mb-4">{{title}}</h2>
+    <div class="table-responsive">        
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Día</th>
+                    <th scope="col">Comida</th>
+                    <th scope="col">Platillo</th>
+                    <th scope="col">Información nutricional</th>
+                    <th scope="col">Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dia, contenido in json.Plan.items() %}
+                    {% for comida, contenido2 in contenido.items() %}
+                    <tr>
+                        <td>{{dia}}</td>
+                        <td>{{comida}}</td>
+                        <td>{{contenido2.comida}}</td>
+                        <td>{{contenido2['información nutricional']}}</td>
+                        <td>{{contenido2.observaciones}}</td>
+                    </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

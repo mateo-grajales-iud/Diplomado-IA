@@ -1,0 +1,1 @@
+GEMENI_2_FLASH = "gemini-2.0-flash-lite"
