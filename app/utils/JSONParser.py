@@ -1,5 +1,6 @@
 import json
 import re
+import unicodedata
 
 def cleanJson(rawString):
     cleaned = re.sub(r"^```json\s*|\s*```$", "", rawString.strip(), flags=re.IGNORECASE)

@@ -8,9 +8,11 @@ def writePrompt(request):
     responseFormat = ("formato respuesta: Responde en JSON solo con los siguientes campos"
                      "Resumen: resumen de la solicitud, "
                      "Plan: este campo incluye el plan, el cual esta definido en los siguientes campos: "
-                     "Dia [numero dia]: Plan para ese dia, este trae cual comida es (ej, desayuno, snack mañana, etc) "
-                      "en el campo comida; el campo información nutricional, que trae la información nutricional relevante"
-                       " de acuerdo a la solicitud; y el campo observaciones, en el cual puedes poner observaciones relevantes" )
+                     "Dia [numero dia]: Plan para ese dia, este trae cual comida es (enumera las comidas y"
+                     " verifica que sea la misma cantidad que se solicita) en el campo comida; el campo "
+                     "información nutricional, que trae la información nutricional relevante de acuerdo a "
+                     "la solicitud; y el campo observaciones, en el cual puedes poner observaciones relevantes. Ejemplo"
+                     "{\"Resumen\" : \"...\",\"Plan\" :{\"Dia #\" :{\"Comida #\" :{\"comida\" : \"...\",\"informacion_nutricional\" : \"...\",\"observaciones\" : \"...\"}}}}" )
     parts.append(target)
     parts.append(responseFormat)
     if data.context: parts.append(f"contexto: {data.context}")
@@ -20,12 +22,10 @@ def writePrompt(request):
     if data.illnesses: parts.append(f"enfermedades: {data.illnesses}")
     if data.allergies: parts.append(f"alergias: {data.allergies}")
     if data.preferences: parts.append(f"preferencias alimenticias: {data.preferences}")
-    if data.liked: parts.append(f"ingredientes preferidos: {data.liked}")
-    if data.disliked: parts.append(f"ingredientes no preferidos: {data.disliked}")
-    if data.restricted: parts.append(f"ingredientes restringidos: {data.restricted}")
-    if data.medical: parts.append(f"indicaciones medicas: {data.medical}")
+    if data.restricted: parts.append(f"ingredientes no permitidos: {data.restricted}")
     if data.location: parts.append(f"ubicación: {data.location}")
     if data.skill: parts.append(f"nivel de habilidad para la cocina: {data.skill}")
+    if data.cost: parts.append(f"costo para el platillo: {data.cost}")
     if data.cuisine: parts.append(f"tipo de cocina: {data.cuisine}")
     if data.days: parts.append(f"días a calcular: {data.days}")
     if data.calories: parts.append(f"calorías maximas: {data.calories}")

@@ -103,32 +103,6 @@
                         </div>
                     </div>
 
-                    <!-- Liked -->
-                    <div class="row mb-3 align-items-center">
-                        <div class="col-md-2 col-12">
-                            <label for="liked" class="form-label">Preferidos</label>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" id="liked" name="liked" placeholder="Ingresa tus alimentos preferidos">
-                        </div>
-                    </div>
-
-                    <!-- Disliked -->
-                    <div class="row mb-3 align-items-center">
-                        <div class="col-md-2 col-12">
-                            <label for="disliked" class="form-label">No preferidos
-                                <i class="bi bi-info-circle" 
-                                    data-bs-toggle="tooltip" 
-                                    data-bs-placement="right" 
-                                    title="Estos son los alimentos que no te gustan, pero puedes consumirlos">
-                                </i>
-                            </label>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" id="disliked" name="disliked" placeholder="Ingresa los alimentos que no te gustan pero puedes consumirlos">
-                        </div>
-                    </div>
-
                     <!-- Restricted -->
                     <div class="row mb-3 align-items-center">
                         <div class="col-md-2 col-12">
@@ -136,23 +110,12 @@
                                 <i class="bi bi-info-circle" 
                                     data-bs-toggle="tooltip" 
                                     data-bs-placement="right" 
-                                    title="Estos son los alimentos que no debes consumir por motivos medicos">
+                                    title="Estos son los alimentos que no debes consumir por motivos medicos o personales">
                                 </i>
                             </label>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" id="restricted" name="restricted" placeholder="Ingresa los alimentos que no puedes consumir ya que eres sensible a ellos (ej. Leche, Gluten, etc)">
-                        </div>
-                    </div>
-
-                    <!-- Medical -->
-                    <div class="row mb-3 align-items-center">
-                        <div class="col-md-2 col-12">
-                            <label for="medical" class="form-label">Indicaciones medicas
-                            </label>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" id="medical" name="medical" placeholder="Ingresa las indicaciones que te ha dado tu medico con respecto a tus alimentos (ej. Baja sal, alto en colesterol HDL, etc)">
+                            <input type="text" class="form-control" id="restricted" name="restricted" placeholder="Ingresa los alimentos que no puedes (o no debes) consumir o que no te gustan">
                         </div>
                     </div>
 
@@ -188,12 +151,29 @@
                     <div class="col-md-4 col-12">
                         <select id="skill" name="skill" class="form-select">
                           <option value="" selected disabled>Selecciona</option>
-                          <option value="masculino">Bajo</option>
-                          <option value="femenino">Medio</option>
-                          <option value="femenino">Alto</option>
+                          <option value="Bajo">Bajo</option>
+                          <option value="Medio">Medio</option>
+                          <option value="Alto">Alto</option>
                         </select>
                       </div>
                     </div>
+
+                    <!-- skill -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-2 col-12">
+                            <label for="cost" class="form-label">
+                              Costo
+                            </label>
+                          </div>
+                        <div class="col-md-4 col-12">
+                            <select id="cost" name="cost" class="form-select">
+                              <option value="" selected disabled>Selecciona</option>
+                              <option value="Bajo">Bajo</option>
+                              <option value="Medio">Medio</option>
+                              <option value="Alto">Alto</option>
+                            </select>
+                          </div>
+                        </div>
 
                     <!-- days -->
                     <div class="row mb-3 align-items-center">

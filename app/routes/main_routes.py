@@ -17,7 +17,7 @@ def getResults(queryId):
     json = None
     if (data['status'] == COMPLETED):
         json = cleanJson(data["response"])
-    return render_template('results.html', status=data["status"], data=data, json=json, title="Plan de Alimentación")
+    return render_template('results.html', status=data["status"], json=json, title="Plan de Alimentación")
 
 @main_routes.app_template_filter("formatear")
 def formatear_clave(clave):

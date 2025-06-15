@@ -3,3 +3,5 @@
 /prompt 1.html
 /prompt 2.html
 /prompt 3.html
+app/.env
+app/services/AIServices/prompt log/*
